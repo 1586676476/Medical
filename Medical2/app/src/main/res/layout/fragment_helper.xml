@@ -118,7 +118,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+       >
 
         <LinearLayout
             android:layout_width="690dp"
@@ -134,16 +135,16 @@
 
         </LinearLayout>
 
-        <TextView
+        <EditText
             android:id="@+id/fragment_helper_chinese_edittext"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="-110dp"
-            android:text="46578912348"
-            android:paddingLeft="10dp"
+            android:layout_width="670dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:hint="中药药方"
             android:paddingBottom="150dp"
-            android:background="@drawable/edittext"/>
+            android:paddingLeft="10dp"
+           android:background="@drawable/edittext"
+            />
 
         <Button
             android:id="@+id/fragment_helper_chinese_button"
@@ -173,8 +174,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="-13dp"
-                android:src="@mipmap/ic_launcher"/>
+                android:layout_marginTop="-13dp" />
         </LinearLayout>
 
         <TextView
@@ -182,11 +182,11 @@
             android:textColor="@color/colorBlack"
             android:text="金额：      700元"
             android:layout_marginLeft="450dp"
-            android:layout_marginTop="-20dp"/>
+            android:layout_marginTop="-40dp"/>
     </LinearLayout>
 
    <LinearLayout
-       android:visibility="gone"
+        android:visibility="gone"
        android:id="@+id/fragment_helper_western_medical_linearLayout"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
@@ -208,14 +208,13 @@
        </LinearLayout>
 
        <EditText
-           android:id="@+id/fragment_helper_western_medical_edittext"
-           android:layout_width="660dp"
-           android:layout_height="100dp"
+           android:id="@+id/fragment_helper_western_edittext"
+           android:layout_width="670dp"
+           android:layout_height="200dp"
            android:layout_marginTop="10dp"
-           android:layout_marginLeft="10dp"
-           android:hint="这是西药"
-           android:paddingLeft="10dp"
+           android:hint="西药药方"
            android:paddingBottom="150dp"
+           android:paddingLeft="10dp"
            android:background="@drawable/edittext"/>
 
        <Button
@@ -246,8 +245,7 @@
                android:layout_width="50dp"
                android:layout_height="50dp"
                android:layout_marginLeft="15dp"
-               android:layout_marginTop="-13dp"
-               android:src="@mipmap/ic_launcher"/>
+               android:layout_marginTop="-13dp" />
        </LinearLayout>
 
        <TextView
@@ -255,7 +253,7 @@
            android:textColor="@color/colorBlack"
            android:text="金额：      700元"
            android:layout_marginLeft="450dp"
-           android:layout_marginTop="-20dp"/>
+           android:layout_marginTop="-40dp"/>
 
 
 

@@ -32,23 +32,16 @@ public class HelperFragment extends Fragment implements View.OnClickListener {
 
     private Bitmap mSignBitmap;
     private String signPath;
-
     private RadioButton ask,chat,chinese,western;
-
 
     private LinearLayout chinese_linearLayout,western_linearLayout,chat_linearLayout,ask_linearLayout;
     private LinearLayout chinese_linearLayout_linearLayout,western_linearLayout_linearLayout;
     private ImageView chinese_img,western_img;
 
-   // private TextView name,sex,age,content;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_helper,container,false);
-//        name= (TextView) view.findViewById(R.id.fragment_helper_name);
-//        sex= (TextView) view.findViewById(R.id.fragment_helper_sex);
-//        age= (TextView) view.findViewById(R.id.fragment_helper_age);
-//        content= (TextView) view.findViewById(R.id.fragment_helper_symptom);
 
         ask= (RadioButton) view.findViewById(R.id.fragment_helper_radioButton_ask);
         chat= (RadioButton) view.findViewById(R.id.fragment_helper_radioButton_chat);
@@ -68,7 +61,8 @@ public class HelperFragment extends Fragment implements View.OnClickListener {
 
         chinese_linearLayout_linearLayout.setOnClickListener(signListener);
         chinese_img.setOnClickListener(signListener);
-       // EventBus.getDefault().register(this);
+        western_linearLayout_linearLayout.setOnClickListener(signListenerWestern);
+        western_img.setOnClickListener(signListenerWestern);
         return view;
     }
 
@@ -85,31 +79,44 @@ public class HelperFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.fragment_helper_radioButton_ask:
-                ask_linearLayout.setVisibility(View.VISIBLE);
-                chat_linearLayout.setVisibility(View.GONE);
-                chinese_linearLayout .setVisibility(View.GONE);
-                western_linearLayout.setVisibility(View.GONE);
+               playAskVeiw();
                 break;
             case R.id.fragment_helper_radioButton_chat:
-                chat_linearLayout.setVisibility(View.VISIBLE);
-                ask_linearLayout.setVisibility(View.GONE);
-                chinese_linearLayout.setVisibility(View.GONE);
-                western_linearLayout.setVisibility(View.GONE);
+                playChatView();
                 break;
             case R.id.fragment_helper_radioButton_chinese:
-                chinese_linearLayout.setVisibility(View.VISIBLE);
-                ask_linearLayout.setVisibility(View.GONE);
-                chat_linearLayout.setVisibility(View.GONE);
-                western_linearLayout.setVisibility(View.GONE);
+                playChineseView();
                 break;
             case R.id.fragment_helper_radioButton_western:
-                western_linearLayout.setVisibility(View.VISIBLE);
-                ask_linearLayout.setVisibility(View.GONE);
-                chat_linearLayout.setVisibility(View.GONE);
-                western_linearLayout.setVisibility(View.GONE);
+                playWesternView();
                 break;
         }
     }
+
+    private View.OnClickListener signListenerWestern = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            WritePadDialog writeTabletDialog = new WritePadDialog(
+                    getContext(),R.style.SignBoardDialog, new DialogListener() {
+                public void refreshActivity(Object object) {
+                    mSignBitmap = (Bitmap) object;
+                    signPath = createFile();
+
+                    //对图片进行压缩
+							/*BitmapFactory.Options options = new BitmapFactory.Options();
+							options.inSampleSize = 15;
+							options.inTempStorage = new byte[5 * 1024];
+							Bitmap zoombm = BitmapFactory.decodeFile(signPath, options);
+*/
+                    Bitmap zoombm = getCompressBitmap(signPath);
+                    western_img.setImageBitmap(zoombm);
+
+
+                }
+            });
+            writeTabletDialog.show();
+        }
+    };
 
     private View.OnClickListener signListener = new View.OnClickListener() {
         @Override
@@ -127,7 +134,6 @@ public class HelperFragment extends Fragment implements View.OnClickListener {
 							Bitmap zoombm = BitmapFactory.decodeFile(signPath, options);
 */
                     Bitmap zoombm = getCompressBitmap(signPath);
-                    //ivSign.setImageBitmap(mSignBitmap);
                     chinese_img.setImageBitmap(zoombm);
 
                 }
@@ -193,20 +199,31 @@ public class HelperFragment extends Fragment implements View.OnClickListener {
         return bitmap;
     }
 
-//    @Subscribe(threadMode = ThreadMode.MAIN)
-//    public void onEvent(HelperBean helperBean){
-//        name.setText(helperBean.getName());
-//        sex.setText(helperBean.getSex());
-//        age.setText(helperBean.getAge()+"");
-//        content.setText(helperBean.getContent());
-//    }
-//
-//    @Override
-//    public void onDestroy() {
-//        super.onDestroy();
-//        EventBus.getDefault().unregister(this);
-//    }
+    public void playAskVeiw(){
+        ask_linearLayout.setVisibility(View.VISIBLE);
+        chat_linearLayout.setVisibility(View.GONE);
+        chinese_linearLayout .setVisibility(View.GONE);
+        western_linearLayout.setVisibility(View.GONE);
+    }
 
+    public void playChatView(){
+        chat_linearLayout.setVisibility(View.VISIBLE);
+        ask_linearLayout.setVisibility(View.GONE);
+        chinese_linearLayout.setVisibility(View.GONE);
+        western_linearLayout.setVisibility(View.GONE);
+    }
 
+    public void playChineseView(){
+        chinese_linearLayout.setVisibility(View.VISIBLE);
+        ask_linearLayout.setVisibility(View.GONE);
+        chat_linearLayout.setVisibility(View.GONE);
+        western_linearLayout.setVisibility(View.GONE);
+    }
 
+    public void playWesternView(){
+        western_linearLayout.setVisibility(View.VISIBLE);
+        ask_linearLayout.setVisibility(View.GONE);
+        chat_linearLayout.setVisibility(View.GONE);
+        chinese_linearLayout.setVisibility(View.GONE);
+    }
 }

@@ -66,7 +66,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-175dp"
+            android:layout_marginLeft="-165dp"
             android:layout_marginTop="100dp"
             android:text="20"
             android:textSize="15dp" />
@@ -82,7 +82,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="100dp"
             android:text="320"
             android:textSize="15dp" />

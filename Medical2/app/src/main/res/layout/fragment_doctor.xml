@@ -10,11 +10,11 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/fragment_doctor_image"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/touxiang" />
 
         <TextView
             android:id="@+id/fragment_doctor_name"
@@ -30,30 +30,31 @@
             android:text="主任医师" />
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="-105dp"
-            android:layout_marginTop="35dp"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="-95dp"
+            android:layout_marginTop="40dp"
+            android:src="@mipmap/xingxing" />
 
         <TextView
             android:id="@+id/fragment_doctor_grade"
             style="@style/smallSize"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="43dp"
-            android:text="9.5" />
+            android:layout_marginTop="40dp"
+            android:text="9.5"
+            android:textColor="@color/colorRed"/>
 
         <TextView
             style="@style/smallSize"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="40dp"
             android:text="接诊量" />
 
         <TextView
             android:id="@+id/fragment_doctor_number"
             style="@style/smallSize"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="40dp"
             android:text="77" />
 
         <TextView

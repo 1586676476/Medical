@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.witnsoft.interhis.medical.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <fragment
+        android:id="@+id/doctor"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:name="com.witnsoft.interhis.medical.fragment.DoctorFragment"
+        />
 
-</android.support.constraint.ConstraintLayout>
+    <fragment
+        android:id="@+id/helper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.witnsoft.interhis.medical.fragment.HelperFragment"
+        android:layout_marginLeft="10dp"/>
+
+</LinearLayout>
